@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Flowers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #4caf50;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #flower-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .flower {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .flower:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Flower Gallery</h1>
+    <button onclick="displayFlowers()">Show Flowers</button>
+    <div id="flower-container"></div>
+
+    <script>
+        function displayFlowers() {
+            const flowerContainer = document.getElementById("flower-container");
+
+            // List of flower image URLs
+            const flowerImages = [
+                "https://via.placeholder.com/150?text=Flower+1",
+                "https://via.placeholder.com/150?text=Flower+2",
+                "https://via.placeholder.com/150?text=Flower+3",
+                "https://via.placeholder.com/150?text=Flower+4",
+                "https://via.placeholder.com/150?text=Flower+5"
+            ];
+
+            // Clear any existing flowers
+            flowerContainer.innerHTML = "";
+
+            // Add each flower to the container
+            flowerImages.forEach(src => {
+                const img = document.createElement("img");
+                img.src = src;
+                img.alt = "Flower";
+                img.className = "flower";
+                flowerContainer.appendChild(img);
+            });
+        }
+    </script>
+</body>
+</html>
